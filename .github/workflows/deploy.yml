@@ -1,0 +1,19 @@
+name: "Deploy"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  website:
+    name: "Website"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Clone repository"
+        uses: actions/checkout@v4
+
+      - name: "Upload main page"
+        run: |
+          curl -X PUT -H "Authorization: Bearer ${{ secrets.CANVAS_TOKEN }}" "https://canvas.bham.ac.uk/api/v1/courses/77855/pages/2360405" -d "wiki_page[body]@index.html"
