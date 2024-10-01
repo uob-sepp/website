@@ -18,4 +18,4 @@ jobs:
         run: |
           COURSE_ID=77855
           PAGE_ID=2360405
-          curl -X PUT -H "Authorization: Bearer ${{ secrets.CANVAS_TOKEN }}" "https://canvas.bham.ac.uk/api/v1/courses/$COURSE_ID/pages/$PAGE_ID" --data-urlencode "wiki_page[body]@index.html" | jq
+          curl -X PUT -H "Authorization: Bearer ${{ secrets.CANVAS_TOKEN }}" "https://canvas.bham.ac.uk/api/v1/courses/$COURSE_ID/pages/$PAGE_ID" --data-urlencode "wiki_page[body]@index.html" &> /dev/null
